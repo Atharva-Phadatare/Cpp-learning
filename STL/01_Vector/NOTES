@@ -1,0 +1,69 @@
+# C++ STL — Vector Notes
+
+## Vector Basics
+
+- `vector<T>` — A dynamic array that can grow or shrink automatically.
+- `vector<int> v;` — Creates an empty vector of integers.
+- `vector<int> v = {10, 20, 30};` — Creates and initializes a vector.
+- `v[i]` — Accesses the element at index `i`.
+- `v.size()` — Returns the number of elements currently stored.
+- `v.begin()` — Returns an iterator pointing to the first element.
+- `v.end()` — Returns an iterator pointing just after the last element.
+- `*iterator` — Dereferences an iterator to access the element it points to.
+- `iterator++` — Moves an iterator to the next element.
+- `vector<int>::iterator` — Explicit iterator type for a vector of integers.
+- `auto` — Lets C++ automatically deduce the type of a variable.
+
+## Vector Traversal
+
+- `for(int x : v)` — Range-based loop that visits every element.
+- `for(auto x : v)` — Range-based loop where C++ automatically determines the element type.
+- `for(auto it = v.begin(); it != v.end(); it++)` — Traverses a vector using iterators.
+
+## STL Algorithms with Vector
+
+- `find(v.begin(), v.end(), value)` — Searches for a value and returns an iterator to its first occurrence.
+- `x - v.begin()` — Converts a vector iterator position into its zero-based index.
+- `count(v.begin(), v.end(), value)` — Counts how many times a value occurs.
+- `reverse(v.begin(), v.end())` — Reverses the elements of a vector.
+- `sort(v.begin(), v.end())` — Sorts vector elements in ascending order.
+- `sort(v.begin(), v.end(), greater<int>())` — Sorts integer elements in descending order.
+- `max_element(v.begin(), v.end())` — Returns an iterator pointing to the largest element.
+- `min_element(v.begin(), v.end())` — Returns an iterator pointing to the smallest element.
+- `accumulate(v.begin(), v.end(), 0)` — Calculates the sum of all elements when used with an initial value of `0`.
+- `all_of(v.begin(), v.end(), condition)` — Returns `true` if every element satisfies the condition.
+- `any_of(v.begin(), v.end(), condition)` — Returns `true` if at least one element satisfies the condition.
+- `none_of(v.begin(), v.end(), condition)` — Returns `true` if no element satisfies the condition.
+
+## Lambdas
+
+- `[](int x){ return x % 2 == 0; }` — A lambda that returns whether an integer is even.
+- `[](auto x, auto y){ return x < y; }` — A lambda comparator that decides whether `x` should come before `y`.
+- `return a.second > b.second;` — Comparator rule for sorting pairs by their second value in descending order.
+
+## Pair
+
+- `pair<T1,T2>` — Stores exactly two related values that can have different types.
+- `p.first` — Accesses the first value of a pair.
+- `p.second` — Accesses the second value of a pair.
+- `pair<int,string> p = {18, "Atharva"};` — Creates a pair containing an integer and a string.
+- `make_pair(18, "Atharva")` — Creates a pair without explicitly writing its pair type.
+- `vector<pair<int,int>> v` — Stores multiple pairs inside a vector.
+- `sort(v.begin(), v.end())` — Sorts pairs by `.first` first and `.second` if `.first` values are equal.
+- `sort(v.begin(), v.end(), comparator)` — Sorts pairs according to a custom ordering rule.
+- `if(x.first != y.first)` — Allows a comparator to use the first value as the primary sorting criterion.
+- `return x.second > y.second;` — Allows a comparator to use the second value as a descending tie-breaker.
+
+## Important Concepts
+
+- `vector` uses zero-based indexing, so the first element is at index `0`.
+- `begin()` points to the first element, while `end()` points one position past the last element.
+- `find()` returns an iterator rather than directly returning an index.
+- `max_element()` and `min_element()` return iterators, so they must be dereferenced with `*`.
+- `accumulate()` belongs to the `<numeric>` header.
+- Most algorithms such as `sort()`, `find()`, `count()`, and `reverse()` belong to `<algorithm>`.
+- `vector` belongs to the `<vector>` header.
+- `pair` belongs to the `<utility>` header, although some other headers may indirectly provide it.
+- A comparator returns `true` when the first argument should appear before the second argument.
+- `a.second < b.second` sorts by the second value in ascending order.
+- `a.second > b.second` sorts by the second value in descending order.
