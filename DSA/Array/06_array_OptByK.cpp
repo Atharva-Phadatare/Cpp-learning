@@ -2,9 +2,9 @@
 using namespace std;
 int main()
 {
-    int a[] = {10, 20, 30, 40, 50, 60};
-    int n = 6;
-    int k = 9;
+    int a[] = {4,5,6,7,1,2,3};
+    int n = 7;
+    int k = 3;
     k=k%n;
     int right=k-1;
     int left=0;
